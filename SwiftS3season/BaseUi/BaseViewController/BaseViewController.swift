@@ -14,7 +14,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         if (self.navigationController?.viewControllers.count)! > 0 {
             setNavBackBtn()
         }
-
+        view.backgroundColor = .white
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }

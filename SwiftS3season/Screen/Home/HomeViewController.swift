@@ -28,7 +28,7 @@ class HomeViewController: BaseViewController {
     }
     
     @objc func push() {
-        self.navigationController?.pushViewController(BasedSome(), animated: true);
+        self.navigationController?.pushViewController(BaseClassStruct(), animated: true);
     }
     
 }

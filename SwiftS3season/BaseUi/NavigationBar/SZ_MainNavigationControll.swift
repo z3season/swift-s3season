@@ -9,27 +9,32 @@ import UIKit
 
 class SZ_MainNavigationControll: UINavigationController, UINavigationControllerDelegate {
 
+    var popDelegate: UIGestureRecognizerDelegate?
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.popDelegate = self.interactivePopGestureRecognizer?.delegate
         delegate = self
+        
         navigationBar.barTintColor = .white
         navigationBar.isTranslucent = false
         navigationBar.tintColor = .black
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
-        // 1.取出手势&view
-        guard let gesture = interactivePopGestureRecognizer else { return }
-        gesture.isEnabled = false
-        let gestureView = gesture.view
-        // 2.获取所有的target
-        let target = (gesture.value(forKey: "_targets") as? [NSObject])?.first
-        guard let transition = target?.value(forKey: "_target") else { return }
-        let action = Selector(("handleNavigationTransition:"))
-        // 3.创建新的手势
-        let popGes = UIPanGestureRecognizer()
-        popGes.maximumNumberOfTouches = 1
-        gestureView?.addGestureRecognizer(popGes)
-        popGes.addTarget(transition, action: action)
+//        // 1.取出手势&view
+//        guard let gesture = interactivePopGestureRecognizer else { return }
+//        gesture.isEnabled = false
+//        let gestureView = gesture.view
+//        // 2.获取所有的target
+//        let target = (gesture.value(forKey: "_targets") as? [NSObject])?.first
+//        guard let transition = target?.value(forKey: "_target") else { return }
+//        let action = Selector(("handleNavigationTransition:"))
+//        // 3.创建新的手势
+//        let popGes = UIPanGestureRecognizer()
+//        popGes.maximumNumberOfTouches = 1
+//        gestureView?.addGestureRecognizer(popGes)
+//        popGes.addTarget(transition, action: action)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -50,7 +55,11 @@ class SZ_MainNavigationControll: UINavigationController, UINavigationControllerD
     }
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        
+        if viewController == self.viewControllers[0] {
+            self.interactivePopGestureRecognizer!.delegate = self.popDelegate
+        } else {
+            self.interactivePopGestureRecognizer!.delegate = nil
+        }
     }
 
 }
