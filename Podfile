@@ -7,4 +7,10 @@ target 'SwiftS3season' do
 
   # Pods for SwiftS3season
 
+  pod 'Moya'
+  pod 'SwiftyJSON'
+  pod 'ObjectMapper'
+  pod 'Kingfisher'
+  pod 'SnapKit'
+  
 end

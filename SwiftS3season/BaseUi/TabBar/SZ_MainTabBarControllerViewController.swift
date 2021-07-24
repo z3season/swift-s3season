@@ -46,7 +46,7 @@ class SZ_MainTabBarControllerViewController: UITabBarController, UITabBarControl
             //创建根控制器
             switch i {
             case 0:
-                vc = HomeViewController()
+                vc = HomeVC()
             case 1:
                 vc = ViewController()
             case 2:

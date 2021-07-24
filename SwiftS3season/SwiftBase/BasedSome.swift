@@ -313,5 +313,110 @@ class BasedSome: BaseViewController {
         
     }
     
-    
+    // MARK: 泛型函数
+    func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
+        let temporaryA = a
+        a = b
+        b = temporaryA
+    }
+
+    // MARK: 泛型约束
+    // 第一个类型参数 T 必须是 SomeClass 子类；第二个类型参数 U 必须符合 SomeProtocol 协议
+    func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U) {
+        // 这里是泛型函数的函数体部分
+    }
+
+    // Equatable: == 的协议
+    func findIndex<T: Equatable>(of valueToFind: T, in array:[T]) -> Int? {
+        for (index, value) in array.enumerated() {
+            if value == valueToFind {
+                return index
+            }
+        }
+        return nil
+    }
+
 }
+
+// MARK: 结构体泛型
+struct Stack1<T> {
+    var items: [T] = []
+    mutating func push(_ item: T) {
+        items.append(item)
+    }
+    mutating func pop() -> T {
+        return items.removeLast()
+    }
+}
+
+// MARK: 泛型扩展
+extension Stack1 {
+    var topItem: T? {
+        return items.isEmpty ? nil : items[items.count - 1]
+    }
+}
+
+// MARK: 泛型 关联类型 associatedtype
+protocol Container {
+    // MARK: 给关联类型添加约束 A的类型必须是遵循Equatable协议
+    associatedtype A: Equatable
+    mutating func append(_ item: A)
+    var count: Int { get }
+    subscript(i: Int) -> A { get }
+}
+
+// MARK: 在关联类型约束里使用协议
+protocol SuffixableContainer: Container {
+    associatedtype Suffix: SuffixableContainer where Suffix.A == A
+    func suffix(_ size: Int) -> Suffix
+}
+
+// MARK: 实现关联类型
+struct Stack<Element: Equatable>: Container {
+    
+    // Stack<Element> 的原始实现部分
+    var items: [Element] = []
+    mutating func push(_ item: Element) {
+        items.append(item)
+    }
+    mutating func pop() -> Element {
+        return items.removeLast()
+    }
+    
+    // Container 协议的实现部分
+    mutating func append(_ item: Element) {
+        self.push(item)
+    }
+    var count: Int {
+        return items.count
+    }
+    subscript(i: Int) -> Element {
+        return items[i]
+    }
+}
+
+// MARK: 泛型 Where 语句
+func allItemsMatch<C1: Container, C2: Container> (_ someContainer: C1, _ anotherContainer: C2) -> Bool where C1.A == C2.A {
+    // 检查两个容器含有相同数量的元素
+    if someContainer.count != anotherContainer.count {
+        return false
+    }
+    // 检查每一对元素是否相等
+    for i in 0..<someContainer.count {
+        if someContainer[i] != anotherContainer[i] {
+            return false
+        }
+    }
+    // 所有元素都匹配，返回 true
+    return true
+}
+
+// MARK: 具有泛型 Where 子句的扩展
+//extension Stack where Element: Equatable {
+//    func isTop(_ item: Element) -> Bool {
+//        guard let topItem = items.last else {
+//            return false
+//        }
+//        return topItem == item
+//    }
+//}

@@ -15,6 +15,7 @@ class ViewController: BaseViewController {
         view.backgroundColor = .gray
         navigationItem.leftBarButtonItem = nil
         navigationItem.hidesBackButton = true
+        
     }
 
     // 修改状态栏颜色

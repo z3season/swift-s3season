@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class HomeVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +25,11 @@ class HomeViewController: BaseViewController {
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 17)//设置字体大小
         btn.addTarget(self, action: #selector(push), for: .touchUpInside)
         self.view.addSubview(btn);
+    
     }
     
     @objc func push() {
-        self.navigationController?.pushViewController(BaseClassStruct(), animated: true);
+        self.navigationController?.pushViewController(BaseErrorThrows(), animated: true);
     }
     
 }

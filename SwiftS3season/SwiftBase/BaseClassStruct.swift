@@ -85,6 +85,31 @@ class StepCounter {
             }
         }
     }
+    
+    // MARK: 指定构造器 便利构造器convenience
+    // 每一个类都必须至少拥有一个指定构造器。在某些情况下，许多类通过继承了父类中的指定构造器而满足了这个条件
+    
+    /**
+     为了简化指定构造器和便利构造器之间的调用关系，Swift 构造器之间的代理调用遵循以下三条规则：
+     规则 1
+         指定构造器必须调用其直接父类的的指定构造器。
+     规则 2
+         便利构造器必须调用同类中定义的其它构造器。
+     规则 3
+         便利构造器最后必须调用指定构造器。
+     */
+    convenience init(name: String, desc: String) {
+        self.init();
+    }
+    
+}
+
+class SubStepCounter: StepCounter {
+    convenience init(name: String) {
+        // MARK: 报错 不能指向父类的便利构造器跟指定构造器
+//        super.init(name: "", desc: "");
+        self.init()
+    }
 }
 
 // MARK: 属性包装器
@@ -122,6 +147,26 @@ struct SmallNumber {
     }
 }
 
+class Residence {
+    var rooms: [Int] = []
+    var numberOfRooms: Int {
+        return rooms.count
+    }
+    // MARK: subscript 下标访问
+    subscript(i: Int) -> Int {
+        get {
+            return rooms[i]
+        }
+        set {
+            rooms[i] = newValue
+        }
+    }
+    func printNumberOfRooms() {
+        print("The number of rooms is \(numberOfRooms)")
+    }
+    var address: Int?
+}
+
 class BaseClassStruct: BaseViewController {
     
     // MARK: 延时加载存储属性
@@ -136,6 +181,11 @@ class BaseClassStruct: BaseViewController {
     // 设置检查值 最大值max
     @SmallNumber(maximum: 14) var height2: Int = 0
     
+    // 重写父类方法
+    override func setNavBackBtn() {
+        
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -152,6 +202,57 @@ class BaseClassStruct: BaseViewController {
 
         // MARK: $+属性可以访问从属性包装器中呈现的一个值（projectedValue）
         print($height1); // false
+        
+    }
+    
+    // MARK: 类型转换 （as? 或 as!）
+    // 某类型的一个常量或变量可能在幕后实际上属于一个子类。当确定是这种情况时，你可以尝试用类型转换操作符（as? 或 as!）向下转到它的子类型
+ 
+    
+    // MARK: Any 和 AnyObject 的类型转换
+    /**
+     Any 可以表示任何类型，包括函数类型。
+
+     AnyObject 可以表示任何类类型的实例。
+     */
+    
+    func anyAnyObject() {
+        var things: [Any] = []
+        
+        things.append(0)
+        things.append(0.0)
+        things.append(42)
+        things.append(3.14159)
+        things.append("hello")
+        things.append((3.0, 5.0))
+        things.append(Point(x: 1, y: 2))
+        things.append({ (name: String) -> String in "Hello, \(name)" })
+
+        for thing in things {
+            switch thing {
+            case 0 as Int:
+                print("zero as an Int")
+            case 0 as Double:
+                print("zero as a Double")
+            case let someInt as Int:
+                print("an integer value of \(someInt)")
+            case let someDouble as Double where someDouble > 0:
+                print("a positive double value of \(someDouble)")
+            case is Double:
+                print("some other double value that I don't want to print")
+            case let someString as String:
+                print("a string value of \"\(someString)\"")
+            case let (x, y) as (Double, Double):
+                print("an (x, y) point at \(x), \(y)")
+            case let point as Point:
+                print("a movie called \(point.x), dir. \(point.y)")
+            case let stringConverter as (String) -> String:
+                print(stringConverter("Michael"))
+            default:
+                print("something else")
+            }
+        }
+
         
     }
     

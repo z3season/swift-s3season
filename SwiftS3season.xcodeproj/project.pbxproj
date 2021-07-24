@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,10 +12,16 @@
 		89B400B026A9104A00B7E486 /* SZ_MainNavigationControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400AE26A9104A00B7E486 /* SZ_MainNavigationControll.swift */; };
 		89B400B526A9107400B7E486 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400B426A9107400B7E486 /* BaseViewController.swift */; };
 		89B400B926A9116500B7E486 /* BasedSome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400B826A9116500B7E486 /* BasedSome.swift */; };
-		89B400BD26A91F7E00B7E486 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400BC26A91F7E00B7E486 /* HomeViewController.swift */; };
+		89B400BD26A91F7E00B7E486 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400BC26A91F7E00B7E486 /* HomeVC.swift */; };
 		89B400C126A9562000B7E486 /* BaseCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400C026A9562000B7E486 /* BaseCollection.swift */; };
 		89B4011826AA908C00B7E486 /* BaseBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4011726AA908C00B7E486 /* BaseBlock.swift */; };
 		89B4011B26AAC30D00B7E486 /* BaseClassStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4011A26AAC30D00B7E486 /* BaseClassStruct.swift */; };
+		89B4015326ABE53200B7E486 /* BaseErrorThrows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4015226ABE53200B7E486 /* BaseErrorThrows.swift */; };
+		89B4015726ABEEF500B7E486 /* BseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4015626ABEEF500B7E486 /* BseExtension.swift */; };
+		89B4015B26ABF4EF00B7E486 /* BaseProcotol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4015A26ABF4EF00B7E486 /* BaseProcotol.swift */; };
+		89B4017026AC181C00B7E486 /* AppRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4016F26AC181C00B7E486 /* AppRequest.swift */; };
+		89B4017426AC183700B7E486 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4017326AC183700B7E486 /* Api.swift */; };
+		89B4017726AC1BA700B7E486 /* RequestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4017626AC1BA700B7E486 /* RequestConfig.swift */; };
 		89FB2FE726A8242800793F0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB2FE626A8242800793F0D /* AppDelegate.swift */; };
 		89FB2FEB26A8242900793F0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB2FEA26A8242900793F0D /* ViewController.swift */; };
 		89FB2FF026A8242D00793F0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FB2FEF26A8242D00793F0D /* Assets.xcassets */; };
@@ -30,10 +36,16 @@
 		89B400AE26A9104A00B7E486 /* SZ_MainNavigationControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZ_MainNavigationControll.swift; sourceTree = "<group>"; };
 		89B400B426A9107400B7E486 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		89B400B826A9116500B7E486 /* BasedSome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasedSome.swift; sourceTree = "<group>"; };
-		89B400BC26A91F7E00B7E486 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		89B400BC26A91F7E00B7E486 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		89B400C026A9562000B7E486 /* BaseCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollection.swift; sourceTree = "<group>"; };
 		89B4011726AA908C00B7E486 /* BaseBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBlock.swift; sourceTree = "<group>"; };
 		89B4011A26AAC30D00B7E486 /* BaseClassStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseClassStruct.swift; sourceTree = "<group>"; };
+		89B4015226ABE53200B7E486 /* BaseErrorThrows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseErrorThrows.swift; sourceTree = "<group>"; };
+		89B4015626ABEEF500B7E486 /* BseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BseExtension.swift; sourceTree = "<group>"; };
+		89B4015A26ABF4EF00B7E486 /* BaseProcotol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProcotol.swift; sourceTree = "<group>"; };
+		89B4016F26AC181C00B7E486 /* AppRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRequest.swift; sourceTree = "<group>"; };
+		89B4017326AC183700B7E486 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		89B4017626AC1BA700B7E486 /* RequestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfig.swift; sourceTree = "<group>"; };
 		89FB2FE326A8242800793F0D /* SwiftS3season.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftS3season.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FB2FE626A8242800793F0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89FB2FEA26A8242900793F0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +81,9 @@
 				89B400C026A9562000B7E486 /* BaseCollection.swift */,
 				89B4011726AA908C00B7E486 /* BaseBlock.swift */,
 				89B4011A26AAC30D00B7E486 /* BaseClassStruct.swift */,
+				89B4015226ABE53200B7E486 /* BaseErrorThrows.swift */,
+				89B4015626ABEEF500B7E486 /* BseExtension.swift */,
+				89B4015A26ABF4EF00B7E486 /* BaseProcotol.swift */,
 			);
 			path = SwiftBase;
 			sourceTree = "<group>";
@@ -110,9 +125,19 @@
 		89B400BB26A91F7600B7E486 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				89B400BC26A91F7E00B7E486 /* HomeViewController.swift */,
+				89B400BC26A91F7E00B7E486 /* HomeVC.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		89B4016E26AC17F700B7E486 /* RequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				89B4016F26AC181C00B7E486 /* AppRequest.swift */,
+				89B4017326AC183700B7E486 /* Api.swift */,
+				89B4017626AC1BA700B7E486 /* RequestConfig.swift */,
+			);
+			path = RequestManager;
 			sourceTree = "<group>";
 		};
 		89FB2FDA26A8242800793F0D = {
@@ -136,6 +161,7 @@
 		89FB2FE526A8242800793F0D /* SwiftS3season */ = {
 			isa = PBXGroup;
 			children = (
+				89B4016E26AC17F700B7E486 /* RequestManager */,
 				89B400AA26A9104A00B7E486 /* BaseUi */,
 				89B400A926A90F4800B7E486 /* SwiftBase */,
 				89B4006526A8301B00B7E486 /* Screen */,
@@ -176,6 +202,7 @@
 				89FB2FDF26A8242800793F0D /* Sources */,
 				89FB2FE026A8242800793F0D /* Frameworks */,
 				89FB2FE126A8242800793F0D /* Resources */,
+				7A70F038C47AFDA3236C2398 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,6 +280,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7A70F038C47AFDA3236C2398 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftS3season/Pods-SwiftS3season-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftS3season/Pods-SwiftS3season-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftS3season/Pods-SwiftS3season-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -261,13 +305,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				89B400B526A9107400B7E486 /* BaseViewController.swift in Sources */,
+				89B4015B26ABF4EF00B7E486 /* BaseProcotol.swift in Sources */,
 				89FB2FEB26A8242900793F0D /* ViewController.swift in Sources */,
+				89B4017426AC183700B7E486 /* Api.swift in Sources */,
+				89B4015726ABEEF500B7E486 /* BseExtension.swift in Sources */,
 				89B400AF26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift in Sources */,
 				89B400B926A9116500B7E486 /* BasedSome.swift in Sources */,
 				89B4011B26AAC30D00B7E486 /* BaseClassStruct.swift in Sources */,
+				89B4015326ABE53200B7E486 /* BaseErrorThrows.swift in Sources */,
 				89B400B026A9104A00B7E486 /* SZ_MainNavigationControll.swift in Sources */,
-				89B400BD26A91F7E00B7E486 /* HomeViewController.swift in Sources */,
+				89B4017026AC181C00B7E486 /* AppRequest.swift in Sources */,
+				89B400BD26A91F7E00B7E486 /* HomeVC.swift in Sources */,
 				89B4011826AA908C00B7E486 /* BaseBlock.swift in Sources */,
+				89B4017726AC1BA700B7E486 /* RequestConfig.swift in Sources */,
 				89B400C126A9562000B7E486 /* BaseCollection.swift in Sources */,
 				89FB2FE726A8242800793F0D /* AppDelegate.swift in Sources */,
 			);
