@@ -8,39 +8,64 @@
 import UIKit
 import SnapKit
 import NVActivityIndicatorView
+import MJRefresh
+import RxSwift
+import RxCocoa
 
 class HomeVC: BaseViewController {
-
+    
+    fileprivate lazy var dataArray = {
+       ["1", "2", "3", "4"]
+    }()
+    
+    private lazy var tableView: UITableView = {
+        let v = UITableView()
+        v.mj_header = MJRefreshNormalHeader()
+        v.mj_header?.setRefreshingTarget(self, refreshingAction: #selector(refreshData))
+        v.backgroundColor = UIColor(hex: "#f3f3f3")
+        v.register(HomeTableViewCell.self, forCellReuseIdentifier: "cell")
+        v.separatorStyle = .none
+        return v
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
+        view.backgroundColor = UIColor(hex: "#f3f3f3")
         navigationItem.leftBarButtonItem = nil
         navigationItem.hidesBackButton = true
-
-        let btn:UIButton = UIButton.init(type: UIButton.ButtonType.custom);//新建btn
-//        btn.frame = CGRect.init(x: 10, y: 10, width: 100, height: 100);//frame位置和大小
-        btn.backgroundColor = UIColor.red;//背景色
-        btn.imageView?.image = UIImage.init(named: "icon_tab_mine_sel")//设置图片
-        btn.layer.cornerRadius = 10
-        btn.layer.masksToBounds = true //设置圆角
-        btn.setTitle("点击", for:  UIControl.State.normal)//设置标题
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 17)//设置字体大小
-        btn.addTarget(self, action: #selector(push), for: .touchUpInside)
-        self.view.addSubview(btn);
-        
-        btn.snp.makeConstraints { make in
-            make.width.height.equalTo(100)
-            make.top.equalTo(100)
-            make.left.equalToSuperview().offset(100)
+        view.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
-          
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-            print("延时3")
+    }
+        
+    @objc func refreshData() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.tableView.mj_header?.endRefreshing()
         }
     }
+        
+}
+
+extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        dataArray.count
+    }
     
-    @objc func push() {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        return tableViewCell ?? UITableViewCell.init()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(BaseErrorThrows(), animated: true);
     }
     
