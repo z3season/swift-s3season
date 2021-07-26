@@ -172,6 +172,11 @@ class BaseClassStruct: BaseViewController {
     // MARK: 延时加载存储属性
     // 全局的常量或变量都是延迟计算的，跟延时加载存储属性相似，不同的地方在于，全局的常量或变量不需要标记 lazy 修饰符。
     lazy var importer = SomeClass()
+    lazy var array: NSArray = {
+        let names = NSArray()
+        print("只在首次访问输出")
+        return names
+    }();
     
     // MARK: 使用属性包装器
     // 可以在局部存储型变量上使用属性包装器，但不能在全局变量或者计算型变量上使用
@@ -203,6 +208,22 @@ class BaseClassStruct: BaseViewController {
         // MARK: $+属性可以访问从属性包装器中呈现的一个值（projectedValue）
         print($height1); // false
         
+        // MARK: lazy懒加载数组 map
+        // 只有当访问数组成员时才会去初始化数组的某个成员
+        let data = 1...3
+        let result = data.lazy.map {
+            (i: Int) -> Int in
+            print("正在处理 \(i)")
+            return i * 2
+        }
+
+        print("准备访问结果")
+        for i in result {
+            print("操作后结果为 \(i)")
+        }
+
+        print("操作完毕")
+
     }
     
     // MARK: 类型转换 （as? 或 as!）

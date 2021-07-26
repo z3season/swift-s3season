@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SnapKit
+import NVActivityIndicatorView
 
 class HomeVC: BaseViewController {
 
@@ -16,7 +18,7 @@ class HomeVC: BaseViewController {
         navigationItem.hidesBackButton = true
 
         let btn:UIButton = UIButton.init(type: UIButton.ButtonType.custom);//新建btn
-        btn.frame = CGRect.init(x: 10, y: 10, width: 100, height: 100);//frame位置和大小
+//        btn.frame = CGRect.init(x: 10, y: 10, width: 100, height: 100);//frame位置和大小
         btn.backgroundColor = UIColor.red;//背景色
         btn.imageView?.image = UIImage.init(named: "icon_tab_mine_sel")//设置图片
         btn.layer.cornerRadius = 10
@@ -25,7 +27,17 @@ class HomeVC: BaseViewController {
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 17)//设置字体大小
         btn.addTarget(self, action: #selector(push), for: .touchUpInside)
         self.view.addSubview(btn);
-    
+        
+        btn.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.top.equalTo(100)
+            make.left.equalToSuperview().offset(100)
+        }
+          
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+            print("延时3")
+        }
     }
     
     @objc func push() {

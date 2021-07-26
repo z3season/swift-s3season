@@ -12,5 +12,11 @@ target 'SwiftS3season' do
   pod 'ObjectMapper'
   pod 'Kingfisher'
   pod 'SnapKit'
-  
+  pod 'NVActivityIndicatorView'
+#  pod 'PromiseKit'
+#  pod 'RxSwift'
+  pod 'MJRefresh'
+  pod 'RxSwift', '6.2.0'
+  pod 'RxCocoa', '6.2.0'
+
 end

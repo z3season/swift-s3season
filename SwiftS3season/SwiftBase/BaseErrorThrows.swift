@@ -76,7 +76,7 @@ class BaseErrorThrows: BaseViewController {
         super.viewDidLoad()
         let vendingMachine = VendingMachine()
         vendingMachine.coinsDeposited = 100
-        
+
         // MARK: 指定清理操作 defer
         // defer 语句将代码的执行延迟到当前的作用域退出之前
         // 注意：即使没有涉及到错误处理的代码，你也可以使用 defer 语句。
@@ -97,7 +97,7 @@ class BaseErrorThrows: BaseViewController {
         } catch {
             print("异常: \(error).")
         }
-        
+
         // MARK: 处理单个错误类型（只处理VendingMachineError类型）
         func nourish(with item: String) throws {
             do {
@@ -115,7 +115,7 @@ class BaseErrorThrows: BaseViewController {
                 print("无此商品、库存不足或者硬币不足")
             }
         }
-        
+
         do {
             try nourish(with: "Chips")
         } catch {
