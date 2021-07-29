@@ -1,0 +1,11 @@
+
+kernel vec2 pixellateKernel(float radius)
+{
+    vec2 positionOfDestPixel, centerPoint;
+    positionOfDestPixel = destCoord();
+    centerPoint.x = positionOfDestPixel.x - mod(positionOfDestPixel.x, radius * 2.0) + radius;
+    centerPoint.y = positionOfDestPixel.y - mod(positionOfDestPixel.y, radius * 2.0) + radius;
+
+    return centerPoint;
+}
+
