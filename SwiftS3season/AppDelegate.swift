@@ -18,7 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.rootViewController = SZ_MainTabBarControllerViewController()
         window?.makeKeyAndVisible()
-        
+        // 可以加速所有的视图动画来进行自动化测试（注意对于在主窗口之外的视图并不会被影响，比如UIAlertview）
+//        window?.layer.speed = 100;
+
         return true
     }
 

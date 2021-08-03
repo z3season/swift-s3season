@@ -20,9 +20,11 @@ let BOTTOM_SAFE_HEIGHT = (IS_IPHONEX_ALL ? 34 : 0)
 
 
 // rgb颜色
-func RGBCOLOR(r:CGFloat,_ g:CGFloat,_ b:CGFloat) -> UIColor {UIColor(red: (r) / 255.0, green: (g) / 255.0, blue: (b) / 255.0, alpha: 1.0)}
+func RGBCO_LOR(r:CGFloat,_ g:CGFloat,_ b:CGFloat) -> UIColor {UIColor(red: (r) / 255.0, green: (g) / 255.0, blue: (b) / 255.0, alpha: 1.0)}
 // rgba颜色
-func RGBACOLOR(r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a: CGFloat = 1.0) -> UIColor {UIColor(red: (r) / 255.0, green: (g) / 255.0, blue: (b) / 255.0, alpha: a)}
+func RGBA_COLOR(r: CGFloat, _ g: CGFloat, _ b: CGFloat, _ a: CGFloat = 1.0) -> UIColor {UIColor(red: (r) / 255.0, green: (g) / 255.0, blue: (b) / 255.0, alpha: a)}
+// 随机色
+func RANDOM_COLOR() -> UIColor { UIColor(red: CGFloat(arc4random() % 256) / 255.0, green: CGFloat(arc4random() % 256) / 255.0, blue: CGFloat(arc4random() % 256) / 255.0, alpha: 1) }
 
 // 设计图的宽高
 fileprivate let UI_WIDTH: CGFloat = 375.0
@@ -35,3 +37,12 @@ func SCALE_HEIGHT(_ font:CGFloat) -> (CGFloat) { SCREEN_HEIGHT / UI_HEIGHT * fon
 // 字体比例
 func SCALE_FONT(_ font:CGFloat) -> (CGFloat) { SCREEN_WIDTH / UI_WIDTH * font }
 
+// 弧度转角度
+func RADIANS_TO_DEGREES(x: CGFloat = 0) -> CGFloat  {
+    (x / CGFloat.pi) * 180.0
+}
+
+// 角度转弧度
+func DEGREES_TO_RADIANS(x: CGFloat = 0) -> CGFloat  {
+    (x / 180.0) * CGFloat.pi
+}

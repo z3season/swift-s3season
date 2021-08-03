@@ -14,6 +14,10 @@
 		8969771A26B14F170024484E /* CoreImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969771926B14F170024484E /* CoreImageVC.swift */; };
 		8969771D26B241090024484E /* CustomFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969771C26B241090024484E /* CustomFilter.swift */; };
 		8969772026B242A70024484E /* MirrorX.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 8969771F26B242A70024484E /* MirrorX.cikernel */; };
+		8969773626B2B7BA0024484E /* CoreAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969773526B2B7BA0024484E /* CoreAnimationVC.swift */; };
+		8969773D26B781330024484E /* CubeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969773B26B781330024484E /* CubeVC.swift */; };
+		8969774326B791660024484E /* CAShapeLayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969774226B791660024484E /* CAShapeLayerVC.swift */; };
+		8969774826B8D7380024484E /* CAMediaTimingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969774726B8D7380024484E /* CAMediaTimingVC.swift */; };
 		89B400AF26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400AC26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift */; };
 		89B400B026A9104A00B7E486 /* SZ_MainNavigationControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400AE26A9104A00B7E486 /* SZ_MainNavigationControll.swift */; };
 		89B400B526A9107400B7E486 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400B426A9107400B7E486 /* BaseViewController.swift */; };
@@ -52,6 +56,11 @@
 		8969771926B14F170024484E /* CoreImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreImageVC.swift; sourceTree = "<group>"; };
 		8969771C26B241090024484E /* CustomFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFilter.swift; sourceTree = "<group>"; };
 		8969771F26B242A70024484E /* MirrorX.cikernel */ = {isa = PBXFileReference; lastKnownFileType = text; path = MirrorX.cikernel; sourceTree = "<group>"; };
+		8969772326B280370024484E /* 框架介绍.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "框架介绍.txt"; sourceTree = "<group>"; };
+		8969773526B2B7BA0024484E /* CoreAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAnimationVC.swift; sourceTree = "<group>"; };
+		8969773B26B781330024484E /* CubeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeVC.swift; sourceTree = "<group>"; };
+		8969774226B791660024484E /* CAShapeLayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShapeLayerVC.swift; sourceTree = "<group>"; };
+		8969774726B8D7380024484E /* CAMediaTimingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAMediaTimingVC.swift; sourceTree = "<group>"; };
 		89B400AC26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZ_MainTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		89B400AE26A9104A00B7E486 /* SZ_MainNavigationControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZ_MainNavigationControll.swift; sourceTree = "<group>"; };
 		89B400B426A9107400B7E486 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +109,7 @@
 				8969771926B14F170024484E /* CoreImageVC.swift */,
 				8969771C26B241090024484E /* CustomFilter.swift */,
 				8969771F26B242A70024484E /* MirrorX.cikernel */,
+				8969772326B280370024484E /* 框架介绍.txt */,
 			);
 			path = CoreImage;
 			sourceTree = "<group>";
@@ -112,9 +122,21 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8969773426B2B7A20024484E /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				8969773526B2B7BA0024484E /* CoreAnimationVC.swift */,
+				8969773B26B781330024484E /* CubeVC.swift */,
+				8969774226B791660024484E /* CAShapeLayerVC.swift */,
+				8969774726B8D7380024484E /* CAMediaTimingVC.swift */,
+			);
+			path = CoreAnimation;
+			sourceTree = "<group>";
+		};
 		89B4006526A8301B00B7E486 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				8969773426B2B7A20024484E /* CoreAnimation */,
 				8969771026B140870024484E /* CoreImage */,
 				89B400BB26A91F7600B7E486 /* Home */,
 			);
@@ -427,11 +449,13 @@
 				89B400AF26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift in Sources */,
 				89B4023226AE8C3000B7E486 /* HomeTableViewCell.swift in Sources */,
 				89B400B926A9116500B7E486 /* BasedSome.swift in Sources */,
+				8969774326B791660024484E /* CAShapeLayerVC.swift in Sources */,
 				89B4011B26AAC30D00B7E486 /* BaseClassStruct.swift in Sources */,
 				89B4022D26AE858C00B7E486 /* MJRefresh+Rx.swift in Sources */,
 				89B4015326ABE53200B7E486 /* BaseErrorThrows.swift in Sources */,
 				89B400B026A9104A00B7E486 /* SZ_MainNavigationControll.swift in Sources */,
 				89B4024626AE939600B7E486 /* SZColors.swift in Sources */,
+				8969774826B8D7380024484E /* CAMediaTimingVC.swift in Sources */,
 				89B400BD26A91F7E00B7E486 /* HomeVC.swift in Sources */,
 				89B4011826AA908C00B7E486 /* BaseBlock.swift in Sources */,
 				89B4023D26AE8D4700B7E486 /* AppRequest.swift in Sources */,
@@ -439,7 +463,9 @@
 				89B400C126A9562000B7E486 /* BaseCollection.swift in Sources */,
 				89B4023C26AE8D4700B7E486 /* Api.swift in Sources */,
 				8969771D26B241090024484E /* CustomFilter.swift in Sources */,
+				8969773D26B781330024484E /* CubeVC.swift in Sources */,
 				89FB2FE726A8242800793F0D /* AppDelegate.swift in Sources */,
+				8969773626B2B7BA0024484E /* CoreAnimationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

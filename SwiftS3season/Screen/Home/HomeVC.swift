@@ -10,6 +10,7 @@ import SnapKit
 import NVActivityIndicatorView
 import MJRefresh
 import SwiftyJSON
+import QuartzCore
 
 // MARK: kvo监听
 class KVOClass: NSObject {

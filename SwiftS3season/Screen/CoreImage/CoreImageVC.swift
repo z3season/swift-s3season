@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GLKit
 
 /*
  CIImage 保存图像数据的类，可以通过UIImage，图像文件或者像素数据来创建，包括未处理的像素数据。
@@ -72,7 +73,8 @@ class CoreImageVC: BaseViewController {
             make.top.left.equalToSuperview().offset(16)
             make.bottom.right.equalToSuperview().offset(-16)
         }
-
+        
+        
         // 查看系统滤镜名称
 //        let filterNames = CIFilter.filterNames(inCategory: kCICategoryBuiltIn) as [String]
 //        print(filterNames)
