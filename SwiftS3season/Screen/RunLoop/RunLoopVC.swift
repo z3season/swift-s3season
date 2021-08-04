@@ -71,23 +71,35 @@ class RunLoopVC: BaseViewController {
 
         // 创建observer
         let observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, CFRunLoopActivity.allActivities.rawValue, true, 0) { (observer, activity) in
-//CFRunLoopActivity
             switch activity {
-            case CFRunLoopActivity.afterWaiting: do {
-                    print("CFRunLoopActivity.afterWaiting")
-                }
+                case CFRunLoopActivity.entry:
+                    print("entry")
+                case CFRunLoopActivity.beforeTimers:
+                    print("beforeTimers")
+                case CFRunLoopActivity.beforeSources:
+                    print("beforeSources")
+                case CFRunLoopActivity.beforeWaiting:
+                    print("beforeWaiting")
+                case CFRunLoopActivity.afterWaiting:
+                    print("afterWaiting")
+                case CFRunLoopActivity.exit:
+                    print("exit")
                 default:
-                break
+                        break
             }
             
         }
         // 添加observer到RunLoop
         CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.commonModes)
         
+        let timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { (timer) in
+            print("timer 倒计时")
+        }
+        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("")
+        print("touchesBegan")
     }
     
 }
