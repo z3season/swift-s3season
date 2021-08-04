@@ -4,14 +4,20 @@
         {
             "title": "CoreImage",
             "detail": "CoreImage detail",
-            "icon_url": "http://img.netbian.com/file/2017/1102/d1d48e823b9732b5219157eb62aa95e2.jpg",
+            "icon_url": "https://c-ssl.duitang.com/uploads/blog/202108/01/20210801112825_638fc.jpg",
             "router_key": "CoreImageVC"
         },
         {
             "title": "CoreAnimation",
             "detail": "CoreAnimation detail",
-            "icon_url": "http://img.netbian.com/file/2017/1102/d1d48e823b9732b5219157eb62aa95e2.jpg",
-            "router_key": "BallAnimation"
+            "icon_url": "https://c-ssl.duitang.com/uploads/item/202012/14/20201214125341_senpl.jpg",
+            "router_key": "LayerMaskVC"
+        },
+        {
+            "title": "CoreGraphicsVC",
+            "detail": "CoreGraphicsVC detail",
+            "icon_url": "https://c-ssl.duitang.com/uploads/blog/202012/25/20201225232945_b0f39.jpg",
+            "router_key": "CoreGraphicsVC"
         }
     ]
 }

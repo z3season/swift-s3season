@@ -18,6 +18,23 @@ class KVOClass: NSObject {
    var otherValue: String = "我不能被监听"
 }
 
+/*
+ 
+ 一般问释放池的实现，和内部的api使用，如果让你去设计一套，你有什么思路
+
+ 所以会了原理，你就把系统实现的那一套原理说一遍，就说是你自己的 面试官考察的就是你是否知道原理
+
+ 比如设计通知，设计kvo，都是这样的目的
+
+
+
+ 二面可能问优化性能的
+
+ 内存优化，卡顿优化，oom、包大小 启动优化
+
+ 三面问算法
+ */
+
 class HomeVC: BaseViewController {
     
     var text: KVOClass = KVOClass()

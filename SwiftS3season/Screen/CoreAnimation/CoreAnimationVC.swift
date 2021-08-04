@@ -111,7 +111,7 @@ class CoreAnimationVC1: BaseViewController, CALayerDelegate {
          CALayer有一个属性叫做sublayerTransform。它也是CATransform3D类型，但和对一个图层的变换不同，它影响到所有的子图层。这意味着你可以一次性对包含这些图层的容器做变换，于是所有的子图层都自动继承了这个变换方法。
          */
         
-        // 表示图层背面是否绘制  默认YES z轴旋转时可看到图片镜像
+        // MARK: isDoubleSided 表示图层背面是否绘制  默认YES z轴旋转时可看到图片镜像
         self.layerView.layer.isDoubleSided = true
         
     }

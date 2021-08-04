@@ -107,7 +107,9 @@ class CAShapeLayerVC: BaseViewController {
 
 }
 
+// MARK: CAShapeLayer 绘图优势
 /**
+
  CAShapeLayer是一个通过矢量图形而不是bitmap来绘制的图层子类。你指定诸如颜色和线宽等属性，用CGPath来定义想要绘制的图形，最后CAShapeLayer就自动渲染出来了。当然，你也可以用Core Graphics直接向原始的CALyer的内容中绘制一个路径，相比之下，使用CAShapeLayer有以下一些优点：
 
  渲染快速。CAShapeLayer使用了硬件加速，绘制同一图形会比用Core Graphics快很多。

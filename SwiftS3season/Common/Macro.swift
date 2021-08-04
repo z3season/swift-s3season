@@ -46,3 +46,14 @@ func RADIANS_TO_DEGREES(x: CGFloat = 0) -> CGFloat  {
 func DEGREES_TO_RADIANS(x: CGFloat = 0) -> CGFloat  {
     (x / 180.0) * CGFloat.pi
 }
+
+// 获取keyWindow
+func getKeyWindow() -> UIWindow {
+    var window: UIWindow
+    if #available(iOS 13.0, *) {
+        window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).last!
+    } else {
+        window = UIApplication.shared.keyWindow!
+    }
+    return window
+}
