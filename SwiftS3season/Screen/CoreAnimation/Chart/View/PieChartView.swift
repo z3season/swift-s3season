@@ -38,7 +38,7 @@ class PieChartView: UIControl {
             PieModel(angle: totalPi * 0.3, alpha: 0.9, desc: "第二个弧形"),
             PieModel(angle: totalPi * 0.2, alpha: 0.8, desc: "第三个弧形"),
             PieModel(angle: totalPi * 0.15, alpha: 1, desc: "第四个弧形"),
-            PieModel(angle: totalPi * 0.2, alpha: 0.5, desc: "第五个弧形"),
+            PieModel(angle: totalPi * 0.25, alpha: 0.5, desc: "第五个弧形"),
         ]
         self.drawPieChart()
     }
@@ -59,8 +59,8 @@ class PieChartView: UIControl {
         // 圆心与点击位置 与x轴的角度
         let touchAngle = self.calculateAngle(startPoint: self.pieCenter, endPoint: touchPoint)
         
-        let a = RADIANS_TO_DEGREES(touchAngle)
-        print("当前点击的角度 \(a)")
+//        let a = RADIANS_TO_DEGREES(touchAngle)
+//        print("当前点击的角度 \(a)")
         
         // 圆心到点击位置的距离
         let touchDistance = self.calculateDistanceBetweenTwoPoints(touchPoint, self.pieCenter)
@@ -71,9 +71,11 @@ class PieChartView: UIControl {
         }
         // 点击了圆环
         if touchDistance < (self.outPieWidth * 0.5 + self.outRadius) {
-            for (_, model) in pieModelArray.enumerated() {
+            for (index, model) in pieModelArray.enumerated() {
                 if model.startAngle < touchAngle && model.endAngle > touchAngle {
                     print("点击了圆环\(model.desc)--- 角度\(model.angleNum)")
+                    let arcLayer = self.arcArray[index]
+                    arcLayer.transform = model.transform()
                     break
                 }
             }
@@ -87,7 +89,7 @@ class PieChartView: UIControl {
         let width = self.frame.width
         self.outRadius = 90
         self.inRadius = 60
-        self.outPieWidth = 30
+        self.outPieWidth = 45
         self.inPieWidth = ((self.outRadius - self.inRadius - self.outPieWidth * 0.5) * 2)
         self.pieCenter = CGPoint(x: width / 2.0, y: height / 2.0)
         
@@ -104,6 +106,7 @@ class PieChartView: UIControl {
             
             //创建一个容器 外部饼状图与内部饼状图
             let arcLayer = CALayer()
+            arcLayer.isDoubleSided = false
             arcLayer.frame = self.bounds
             arcArray.append(arcLayer)
             self.layer.addSublayer(arcLayer)

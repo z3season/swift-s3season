@@ -7,6 +7,14 @@
 
 import UIKit
 
+// 象限
+enum QuadrantType {
+    case first
+    case two
+    case three
+    case four
+}
+
 class PieModel: NSObject {
 
     var desc: String = ""
@@ -15,6 +23,7 @@ class PieModel: NSObject {
     var startAngle: CGFloat = 0
     var totalValue: CGFloat = 0
     var alpha: CGFloat = 1.0
+    var isMoveOut: Bool = false
     
     var angleNum: CGFloat {
         get {
@@ -30,6 +39,20 @@ class PieModel: NSObject {
     
     func caculateAngle(_ startAngle: CGFloat, _ maxValue: CGFloat) {
         self.endAngle = startAngle + self.angle
+    }
+    
+    func transform() -> CATransform3D {
+        var transform3D = CATransform3DIdentity
+        transform3D.m34 = -1.0 / 500.0
+        let x: CGFloat = 10.0
+        let y: CGFloat = 10.0
+        
+        
+        
+        
+        
+        transform3D = CATransform3DTranslate(transform3D, x, y, 0)
+        return transform3D
     }
     
 }
