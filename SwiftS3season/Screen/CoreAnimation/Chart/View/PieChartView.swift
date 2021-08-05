@@ -38,7 +38,7 @@ class PieChartView: UIControl {
             PieModel(angle: totalPi * 0.3, alpha: 0.9, desc: "第二个弧形"),
             PieModel(angle: totalPi * 0.2, alpha: 0.8, desc: "第三个弧形"),
             PieModel(angle: totalPi * 0.15, alpha: 1, desc: "第四个弧形"),
-            PieModel(angle: totalPi * 0.25, alpha: 0.5, desc: "第五个弧形"),
+            PieModel(angle: totalPi * 0.2, alpha: 0.5, desc: "第五个弧形"),
         ]
         self.drawPieChart()
     }
@@ -85,9 +85,9 @@ class PieChartView: UIControl {
     func drawPieChart() {
         let height = self.frame.height
         let width = self.frame.width
-        self.outRadius = 120
-        self.inRadius = 65
-        self.outPieWidth = 50
+        self.outRadius = 90
+        self.inRadius = 60
+        self.outPieWidth = 30
         self.inPieWidth = ((self.outRadius - self.inRadius - self.outPieWidth * 0.5) * 2)
         self.pieCenter = CGPoint(x: width / 2.0, y: height / 2.0)
         
