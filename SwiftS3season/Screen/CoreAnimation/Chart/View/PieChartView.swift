@@ -6,8 +6,8 @@
 //
 
 import UIKit
+import Toast_Swift
 
-//https://juejin.cn/post/6844903494915194887
 class PieChartView: UIControl {
     
     var outPieArray: [CAShapeLayer] = []
@@ -66,21 +66,50 @@ class PieChartView: UIControl {
         let touchDistance = self.calculateDistanceBetweenTwoPoints(touchPoint, self.pieCenter)
         // 点击了内圆
         if touchDistance < (self.inRadius - self.inPieWidth * 0.5) {
-            print("点击了内圆")
+//            self.makeToast("点击了内圆")
             return;
         }
         // 点击了圆环
         if touchDistance < (self.outPieWidth * 0.5 + self.outRadius) {
             for (index, model) in pieModelArray.enumerated() {
                 if model.startAngle < touchAngle && model.endAngle > touchAngle {
-                    print("点击了圆环\(model.desc)--- 角度\(model.angleNum)")
-                    let arcLayer = self.arcArray[index]
-                    arcLayer.transform = model.transform()
+//                    self.makeToast("点击了圆环\(model.desc)--- 角度\(model.angleNum)")
+                    self.selectedArc(index)
                     break
                 }
             }
             return;
         }
+    }
+    
+    // MARK: 点击了一个弧
+    func selectedArc(_ index: Int) {
+        if index < 0 || index >= self.pieModelArray.count {
+            return
+        }
+        var preIndex: Int?
+        for (idx, item) in pieModelArray.enumerated() {
+            if item.isMoveOut {
+                preIndex = idx
+                break
+            }
+        }
+        let currentModel = self.pieModelArray[index]
+        guard preIndex != nil || preIndex == index else {
+            currentModel.isMoveOut = !currentModel.isMoveOut
+            let currentLayer = self.arcArray[index]
+            currentLayer.transform = currentModel.transform()
+            return
+        }
+        currentModel.isMoveOut = true
+
+        let preModel = self.pieModelArray[preIndex ?? 0]
+        preModel.isMoveOut = false
+        
+        let currentLayer = self.arcArray[index]
+        currentLayer.transform = currentModel.transform()
+        let preLayer = self.arcArray[preIndex ?? 0]
+        preLayer.transform = preModel.transform()
     }
   
     // MARK: 绘制内外圆

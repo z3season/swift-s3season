@@ -43,14 +43,42 @@ class PieModel: NSObject {
     
     func transform() -> CATransform3D {
         var transform3D = CATransform3DIdentity
+        if !isMoveOut {
+            return transform3D
+        }
         transform3D.m34 = -1.0 / 500.0
-        let x: CGFloat = 10.0
-        let y: CGFloat = 10.0
+        var x: CGFloat = 0.0
+        var y: CGFloat = 0.0
+        let moveLine: CGFloat = 20.0
         
+        let startAngle = self.startAngle + CGFloat.pi * 0.5
+        let endAngle = self.endAngle + CGFloat.pi * 0.5
         
-        
-        
-        
+        // 中分线的角度
+        let centerAngle = ((startAngle + endAngle) * 0.5)
+        var resultAngle: CGFloat = 0
+        if (centerAngle > 0 && centerAngle <= CGFloat.pi * 0.5) {
+            // 第一象限
+            resultAngle = (CGFloat.pi - endAngle - startAngle) * 0.5
+            x = cos(resultAngle) * moveLine
+            y = -sin(resultAngle) * moveLine
+        } else if (centerAngle > CGFloat.pi * 0.5 && centerAngle <= CGFloat.pi) {
+            // 第二象限
+            resultAngle = (endAngle + startAngle - CGFloat.pi) * 0.5
+            x = cos(resultAngle) * moveLine
+            y = sin(resultAngle) * moveLine
+        } else if (centerAngle > CGFloat.pi && centerAngle <= CGFloat.pi * 1.5) {
+            // 第三象限
+            resultAngle = (3 * CGFloat.pi - endAngle - startAngle) * 0.5
+            x = -cos(resultAngle) * moveLine
+            y = sin(resultAngle) * moveLine
+        } else {
+            // 第四象限
+            resultAngle = (endAngle + startAngle - CGFloat.pi * 3) * 0.5
+            x = -cos(resultAngle) * moveLine
+            y = -sin(resultAngle) * moveLine
+        }
+                
         transform3D = CATransform3DTranslate(transform3D, x, y, 0)
         return transform3D
     }

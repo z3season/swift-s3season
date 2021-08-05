@@ -62,6 +62,8 @@ import UIKit
 
 class RunLoopVC: BaseViewController {
 
+    var observer: CFRunLoopObserver?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -70,7 +72,7 @@ class RunLoopVC: BaseViewController {
 
 
         // 创建observer
-        let observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, CFRunLoopActivity.allActivities.rawValue, true, 0) { (observer, activity) in
+        self.observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, CFRunLoopActivity.allActivities.rawValue, true, 0) { (observer, activity) in
             switch activity {
                 case CFRunLoopActivity.entry:
                     print("entry")
@@ -90,16 +92,20 @@ class RunLoopVC: BaseViewController {
             
         }
         // 添加observer到RunLoop
-        CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.commonModes)
+        CFRunLoopAddObserver(CFRunLoopGetCurrent(), self.observer, CFRunLoopMode.commonModes)
         
         Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (timer) in
             print("-------- timer 倒计时 -------")
         }
-        
+                
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("--- touchesBegan --- ")
+    }
+    
+    deinit {
+        CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), self.observer, CFRunLoopMode.commonModes)
     }
     
 }
