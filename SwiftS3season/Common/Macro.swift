@@ -38,7 +38,7 @@ func SCALE_HEIGHT(_ font:CGFloat) -> (CGFloat) { SCREEN_HEIGHT / UI_HEIGHT * fon
 func SCALE_FONT(_ font:CGFloat) -> (CGFloat) { SCREEN_WIDTH / UI_WIDTH * font }
 
 // 弧度转角度
-func RADIANS_TO_DEGREES(x: CGFloat = 0) -> CGFloat  {
+func RADIANS_TO_DEGREES(_ x: CGFloat = 0) -> CGFloat  {
     (x / CGFloat.pi) * 180.0
 }
 

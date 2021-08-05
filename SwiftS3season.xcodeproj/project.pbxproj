@@ -25,6 +25,10 @@
 		896977A126BA6ED80024484E /* img_01.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8969779E26BA6ED80024484E /* img_01.jpeg */; };
 		896977A226BA6ED80024484E /* img_03.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8969779F26BA6ED80024484E /* img_03.jpeg */; };
 		896977A526BA8F080024484E /* LayerMaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896977A426BA8F080024484E /* LayerMaskVC.swift */; };
+		896977F726BB7A7C0024484E /* CAChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896977F626BB7A7C0024484E /* CAChartVC.swift */; };
+		896977FE26BB7C450024484E /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896977FD26BB7C450024484E /* GraphView.swift */; };
+		8969780126BBAFDF0024484E /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969780026BBAFDF0024484E /* PieChartView.swift */; };
+		8969782326BBBE010024484E /* PieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969782226BBBE010024484E /* PieModel.swift */; };
 		89B400AF26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400AC26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift */; };
 		89B400B026A9104A00B7E486 /* SZ_MainNavigationControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400AE26A9104A00B7E486 /* SZ_MainNavigationControll.swift */; };
 		89B400B526A9107400B7E486 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400B426A9107400B7E486 /* BaseViewController.swift */; };
@@ -77,6 +81,10 @@
 		8969779E26BA6ED80024484E /* img_01.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img_01.jpeg; sourceTree = "<group>"; };
 		8969779F26BA6ED80024484E /* img_03.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img_03.jpeg; sourceTree = "<group>"; };
 		896977A426BA8F080024484E /* LayerMaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerMaskVC.swift; sourceTree = "<group>"; };
+		896977F626BB7A7C0024484E /* CAChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAChartVC.swift; sourceTree = "<group>"; };
+		896977FD26BB7C450024484E /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		8969780026BBAFDF0024484E /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		8969782226BBBE010024484E /* PieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieModel.swift; sourceTree = "<group>"; };
 		89B400AC26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZ_MainTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		89B400AE26A9104A00B7E486 /* SZ_MainNavigationControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZ_MainNavigationControll.swift; sourceTree = "<group>"; };
 		89B400B426A9107400B7E486 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 		8969773426B2B7A20024484E /* CoreAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				896977F526BB7A7C0024484E /* Chart */,
 				8969773526B2B7BA0024484E /* CoreAnimationVC.swift */,
 				8969773B26B781330024484E /* CubeVC.swift */,
 				8969774226B791660024484E /* CAShapeLayerVC.swift */,
@@ -177,6 +186,33 @@
 				8969779F26BA6ED80024484E /* img_03.jpeg */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		896977F526BB7A7C0024484E /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				896977FB26BB7A910024484E /* ViewModel */,
+				896977FA26BB7A880024484E /* View */,
+				896977F626BB7A7C0024484E /* CAChartVC.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		896977FA26BB7A880024484E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				896977FD26BB7C450024484E /* GraphView.swift */,
+				8969780026BBAFDF0024484E /* PieChartView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		896977FB26BB7A910024484E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8969782226BBBE010024484E /* PieModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		89B4006526A8301B00B7E486 /* Screen */ = {
@@ -499,11 +535,13 @@
 				8969779926BA5DEB0024484E /* CoreGraphicsVC.swift in Sources */,
 				89FB2FEB26A8242900793F0D /* ViewController.swift in Sources */,
 				616667B926BAE67900FD365E /* RunLoopOc.m in Sources */,
+				8969782326BBBE010024484E /* PieModel.swift in Sources */,
 				89B4015726ABEEF500B7E486 /* BseExtension.swift in Sources */,
 				8969771A26B14F170024484E /* CoreImageVC.swift in Sources */,
 				8969770E26B0F23B0024484E /* RxSwiftVC.swift in Sources */,
 				89B400AF26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift in Sources */,
 				89B4023226AE8C3000B7E486 /* HomeTableViewCell.swift in Sources */,
+				896977FE26BB7C450024484E /* GraphView.swift in Sources */,
 				89B400B926A9116500B7E486 /* BasedSome.swift in Sources */,
 				8969774326B791660024484E /* CAShapeLayerVC.swift in Sources */,
 				89B4011B26AAC30D00B7E486 /* BaseClassStruct.swift in Sources */,
@@ -511,6 +549,7 @@
 				89B4015326ABE53200B7E486 /* BaseErrorThrows.swift in Sources */,
 				89B400B026A9104A00B7E486 /* SZ_MainNavigationControll.swift in Sources */,
 				89B4024626AE939600B7E486 /* SZColors.swift in Sources */,
+				8969780126BBAFDF0024484E /* PieChartView.swift in Sources */,
 				8969774826B8D7380024484E /* CAMediaTimingVC.swift in Sources */,
 				89B400BD26A91F7E00B7E486 /* HomeVC.swift in Sources */,
 				89B4011826AA908C00B7E486 /* BaseBlock.swift in Sources */,
@@ -521,6 +560,7 @@
 				89B4023C26AE8D4700B7E486 /* Api.swift in Sources */,
 				8969771D26B241090024484E /* CustomFilter.swift in Sources */,
 				8969773D26B781330024484E /* CubeVC.swift in Sources */,
+				896977F726BB7A7C0024484E /* CAChartVC.swift in Sources */,
 				89FB2FE726A8242800793F0D /* AppDelegate.swift in Sources */,
 				8969773626B2B7BA0024484E /* CoreAnimationVC.swift in Sources */,
 			);

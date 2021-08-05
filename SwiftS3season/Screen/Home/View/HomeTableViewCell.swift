@@ -22,6 +22,7 @@ class HomeTableViewCell: UITableViewCell {
         let img = UIImageView.init()
         img.layer.cornerRadius = SCALE_WIDTH(4)
         img.layer.masksToBounds = true
+        img.contentMode = .scaleAspectFill
         return img
     }()
     

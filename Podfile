@@ -16,6 +16,7 @@ target 'SwiftS3season' do
   pod 'Kingfisher'
 #  layout库
   pod 'SnapKit'
+# loading库
   pod 'NVActivityIndicatorView'
 #  pod 'PromiseKit'
   pod 'MJRefresh'

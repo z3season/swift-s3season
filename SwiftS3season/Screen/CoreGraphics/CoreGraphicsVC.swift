@@ -46,7 +46,6 @@ class CoreGraphicsVC: BaseViewController {
             imageV.frame = CGRect(x: 10, y: 300, width: 100, height: 200)
             self.view.addSubview(imageV)
         }
-        
     }
     
 }

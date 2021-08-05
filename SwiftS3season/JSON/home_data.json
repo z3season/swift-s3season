@@ -11,7 +11,7 @@
             "title": "CoreAnimation",
             "detail": "CoreAnimation detail",
             "icon_url": "https://c-ssl.duitang.com/uploads/item/202012/14/20201214125341_senpl.jpg",
-            "router_key": "LayerMaskVC"
+            "router_key": "CAChartVC"
         },
         {
             "title": "CoreGraphics",

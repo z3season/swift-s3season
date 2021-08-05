@@ -92,14 +92,14 @@ class RunLoopVC: BaseViewController {
         // 添加observer到RunLoop
         CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.commonModes)
         
-        let timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { (timer) in
-            print("timer 倒计时")
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (timer) in
+            print("-------- timer 倒计时 -------")
         }
         
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesBegan")
+        print("--- touchesBegan --- ")
     }
     
 }
