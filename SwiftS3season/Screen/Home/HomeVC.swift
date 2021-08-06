@@ -36,19 +36,68 @@ class KVOClass: NSObject {
  三面问算法
  */
 
-class HomeVC: BaseViewController {
+class HomeVC: BasePageVC {
 
     lazy var naviBGView: UIView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.automaticallyAdjustsScrollViewInsets = false
+
+        self.view.backgroundColor = UIColor.white
+
+        
+//        if #available(iOS 11.0, *) {
+//            self.automaticallyAdjustsScrollViewInsets = false
+//        }
+        
+
         let topSafeMargin = getKeyWindow().jx_layoutInsets().top
         let naviHeight = getKeyWindow().jx_navigationHeight()
+        //导航栏隐藏就是设置pinSectionHeaderVerticalOffset属性即可，数值越大越往下沉
         pagingView.pinSectionHeaderVerticalOffset = Int(naviHeight)
-        
+
+        //自定义导航栏
+        naviBGView.alpha = 0
+        naviBGView.backgroundColor = UIColor.white
+        naviBGView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: naviHeight)
+        self.view.addSubview(naviBGView)
+
+        let naviTitleLabel = UILabel()
+        naviTitleLabel.text = "导航栏隐藏"
+        naviTitleLabel.textAlignment = .center
+        naviTitleLabel.frame = CGRect(x: 0, y: topSafeMargin, width: self.view.bounds.size.width, height: 44)
+        naviBGView.addSubview(naviTitleLabel)
+
+        let back = UIButton(type: .system)
+        back.setTitle("返回", for: .normal)
+        back.frame = CGRect(x: 12, y: topSafeMargin, width: 44, height: 44)
+        back.addTarget(self, action: #selector(naviBack), for: .touchUpInside)
+        naviBGView.addSubview(back)
     }
-    
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
+    @objc func naviBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    func pagingView(_ pagingView: JXPagingView, mainTableViewDidScroll scrollView: UIScrollView) {
+        let thresholdDistance: CGFloat = 100
+        var percent = scrollView.contentOffset.y/thresholdDistance
+        percent = max(0, min(1, percent))
+        naviBGView.alpha = percent
+    }
+
 }
 
 class HomeSubVc: BaseViewController {
