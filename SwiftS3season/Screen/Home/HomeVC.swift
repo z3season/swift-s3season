@@ -11,6 +11,7 @@ import NVActivityIndicatorView
 import MJRefresh
 import SwiftyJSON
 import QuartzCore
+import JXPagingView
 
 // MARK: kvo监听
 class KVOClass: NSObject {
@@ -36,6 +37,21 @@ class KVOClass: NSObject {
  */
 
 class HomeVC: BaseViewController {
+
+    lazy var naviBGView: UIView = UIView()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
+        let topSafeMargin = getKeyWindow().jx_layoutInsets().top
+        let naviHeight = getKeyWindow().jx_navigationHeight()
+        pagingView.pinSectionHeaderVerticalOffset = Int(naviHeight)
+        
+    }
+    
+}
+
+class HomeSubVc: BaseViewController {
     
     var text: KVOClass = KVOClass()
     fileprivate lazy var dataArray: [HomeModel] = []
@@ -103,7 +119,7 @@ class HomeVC: BaseViewController {
         
 }
 
-extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+extension HomeSubVc: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dataArray.count
     }

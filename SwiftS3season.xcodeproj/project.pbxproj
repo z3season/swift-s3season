@@ -29,6 +29,7 @@
 		896977FE26BB7C450024484E /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896977FD26BB7C450024484E /* GraphView.swift */; };
 		8969780126BBAFDF0024484E /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969780026BBAFDF0024484E /* PieChartView.swift */; };
 		8969782326BBBE010024484E /* PieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8969782226BBBE010024484E /* PieModel.swift */; };
+		898893FE26BD451300DFD094 /* UIWindow+JXSafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898893FD26BD451300DFD094 /* UIWindow+JXSafeArea.swift */; };
 		89B400AF26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400AC26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift */; };
 		89B400B026A9104A00B7E486 /* SZ_MainNavigationControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400AE26A9104A00B7E486 /* SZ_MainNavigationControll.swift */; };
 		89B400B526A9107400B7E486 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400B426A9107400B7E486 /* BaseViewController.swift */; };
@@ -85,6 +86,7 @@
 		896977FD26BB7C450024484E /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		8969780026BBAFDF0024484E /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		8969782226BBBE010024484E /* PieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieModel.swift; sourceTree = "<group>"; };
+		898893FD26BD451300DFD094 /* UIWindow+JXSafeArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+JXSafeArea.swift"; sourceTree = "<group>"; };
 		89B400AC26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZ_MainTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		89B400AE26A9104A00B7E486 /* SZ_MainNavigationControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZ_MainNavigationControll.swift; sourceTree = "<group>"; };
 		89B400B426A9107400B7E486 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 		89B4024426AE938300B7E486 /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				898893FD26BD451300DFD094 /* UIWindow+JXSafeArea.swift */,
 				89B4024526AE939600B7E486 /* SZColors.swift */,
 			);
 			path = extension;
@@ -529,6 +532,7 @@
 			files = (
 				89B400B526A9107400B7E486 /* BaseViewController.swift in Sources */,
 				8969771326B140AE0024484E /* HomeViewModel.swift in Sources */,
+				898893FE26BD451300DFD094 /* UIWindow+JXSafeArea.swift in Sources */,
 				89B4024026AE8D5900B7E486 /* Macro.swift in Sources */,
 				89B4015B26ABF4EF00B7E486 /* BaseProcotol.swift in Sources */,
 				896977A526BA8F080024484E /* LayerMaskVC.swift in Sources */,
