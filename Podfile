@@ -7,6 +7,9 @@ target 'SwiftS3season' do
 
   # Pods for SwiftS3season
 
+  # Carthage类似Cocoapods
+  
+  
 # 请求库
   pod 'Moya'
 #  模型转换库
@@ -24,5 +27,7 @@ target 'SwiftS3season' do
   pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'
   pod 'Toast-Swift'
+  pod 'JXPagingView/Paging'
+  pod 'JXSegmentedView'
 
 end

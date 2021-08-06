@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
+  - JXPagingView/Paging (2.0.13)
+  - JXSegmentedView (1.2.7)
   - Kingfisher (6.3.0)
   - MJRefresh (3.5.0)
   - Moya (14.0.0):
@@ -21,6 +23,8 @@ PODS:
   - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
+  - JXPagingView/Paging
+  - JXSegmentedView
   - Kingfisher
   - MJRefresh
   - Moya
@@ -35,6 +39,8 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - JXPagingView
+    - JXSegmentedView
     - Kingfisher
     - MJRefresh
     - Moya
@@ -49,6 +55,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  JXPagingView: 821ed274f09eaf2843a96c3a74e9d138e27d9730
+  JXSegmentedView: eb1cad21f57c2543c00c3e08b8fd3c7ca54f5acd
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
@@ -61,6 +69,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 4fb341d6ee3e13230f76d0bc49c8946d1b37aaa8
+PODFILE CHECKSUM: d48683f6c97b3237f9af375e1a60dd54662c6b51
 
 COCOAPODS: 1.10.0
