@@ -2,7 +2,7 @@
 //  CoreAnimationVC.swift
 //  SwiftS3season
 //
-//  Created by mula on 2021/7/29.
+//  Created by season on 2021/7/29.
 //
 
 import UIKit

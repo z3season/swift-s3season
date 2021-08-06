@@ -2,7 +2,7 @@
 //  GraphView.swift
 //  SwiftS3season
 //
-//  Created by mula on 2021/8/5.
+//  Created by season on 2021/8/5.
 //
 
 import UIKit

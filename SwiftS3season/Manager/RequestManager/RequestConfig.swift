@@ -2,7 +2,7 @@
 //  RequestConfig.swift
 //  SwiftS3season
 //
-//  Created by mula on 2021/7/24.
+//  Created by season on 2021/7/24.
 //
 
 import Foundation

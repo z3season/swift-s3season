@@ -2,7 +2,7 @@
 //  PieChartView.swift
 //  SwiftS3season
 //
-//  Created by mula on 2021/8/5.
+//  Created by season on 2021/8/5.
 //
 
 import UIKit
@@ -24,10 +24,7 @@ class PieChartView: UIControl {
     // 圆心
     var pieCenter: CGPoint = CGPoint(x: 0, y: 0)
     
-    let padding: CGFloat = 10.0
-    
     var pieModelArray: [PieModel] = []
-    let maxValue = CGFloat.pi * 2
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -148,7 +145,6 @@ class PieChartView: UIControl {
             
             // 1.2是总共的动画时间, 计算这一块动画所需要的时间
             let duration = 1.2
-//                CFTimeInterval(1.2 * model.totalGiftValue / maxValue)
             durationArray.append(duration)
             
             // 当前饼状图的颜色

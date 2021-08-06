@@ -2,7 +2,7 @@
 //  LayerMaskVC.swift
 //  SwiftS3season
 //
-//  Created by mula on 2021/8/4.
+//  Created by season on 2021/8/4.
 //
 
 import UIKit

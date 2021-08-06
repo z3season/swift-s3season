@@ -66,10 +66,10 @@ class RunLoopVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-//        CFRunLoopObserverCreate(<#T##allocator: CFAllocator!##CFAllocator!#>, <#T##activities: CFOptionFlags##CFOptionFlags#>, <#T##repeats: Bool##Bool#>, <#T##order: CFIndex##CFIndex#>, <#T##callout: CFRunLoopObserverCallBack!##CFRunLoopObserverCallBack!##(CFRunLoopObserver?, CFRunLoopActivity, UnsafeMutableRawPointer?) -> Void#>, <#T##context: UnsafeMutablePointer<CFRunLoopObserverContext>!##UnsafeMutablePointer<CFRunLoopObserverContext>!#>)
-
+//        CFRunLoopObserverCreate(kCFAllocatorDefault, CFRunLoopActivity.allActivities.rawValue, true, 0, { (observer, activity, p) in
+//
+//        }, nil)
 
         // 创建observer
         self.observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, CFRunLoopActivity.allActivities.rawValue, true, 0) { (observer, activity) in
@@ -87,19 +87,21 @@ class RunLoopVC: BaseViewController {
                 case CFRunLoopActivity.exit:
                     print("exit")
                 default:
-                        break
+                    break
             }
-            
         }
+        
         // 添加observer到RunLoop
         CFRunLoopAddObserver(CFRunLoopGetCurrent(), self.observer, CFRunLoopMode.commonModes)
         
+        // 处理timer
         Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (timer) in
             print("-------- timer 倒计时 -------")
         }
                 
     }
 
+    // 处理系统点击事件
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("--- touchesBegan --- ")
     }
@@ -110,6 +112,18 @@ class RunLoopVC: BaseViewController {
     
 }
 
+// MARK: CFRunLoopRef NSRunLoop
+/*
+ CFRunLoopRef 是在 CoreFoundation 框架内的，它提供了纯 C 函数的 API，所有这些 API 都是线程安全的。
+ NSRunLoop 是基于 CFRunLoopRef 的封装，提供了面向对象的 API，但是这些 API 不是线程安全的。
+ */
+
+class RunLoopThread: NSObject {
+    
+}
+
+
+// MARK: C _CFRunLoop的一些结构体
 /**
  struct __CFRunLoop {
      CFRuntimeBase _base;

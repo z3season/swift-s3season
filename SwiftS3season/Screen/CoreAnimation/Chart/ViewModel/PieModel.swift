@@ -2,7 +2,7 @@
 //  PieModel.swift
 //  SwiftS3season
 //
-//  Created by mula on 2021/8/5.
+//  Created by season on 2021/8/5.
 //
 
 import UIKit
@@ -51,6 +51,7 @@ class PieModel: NSObject {
         var y: CGFloat = 0.0
         let moveLine: CGFloat = 20.0
         
+        // 从 -π/2位置开始
         let startAngle = self.startAngle + CGFloat.pi * 0.5
         let endAngle = self.endAngle + CGFloat.pi * 0.5
         
