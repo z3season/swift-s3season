@@ -42,14 +42,9 @@ class HomeVC: BasePageVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.isNeedHeader = true
 
         self.view.backgroundColor = UIColor.white
-
-        
-//        if #available(iOS 11.0, *) {
-//            self.automaticallyAdjustsScrollViewInsets = false
-//        }
-        
 
         let topSafeMargin = getKeyWindow().jx_layoutInsets().top
         let naviHeight = getKeyWindow().jx_navigationHeight()
@@ -63,28 +58,23 @@ class HomeVC: BasePageVC {
         self.view.addSubview(naviBGView)
 
         let naviTitleLabel = UILabel()
-        naviTitleLabel.text = "导航栏隐藏"
+        naviTitleLabel.textColor = UIColor(hex: "#111111")
+        naviTitleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        naviTitleLabel.text = "首页"
         naviTitleLabel.textAlignment = .center
         naviTitleLabel.frame = CGRect(x: 0, y: topSafeMargin, width: self.view.bounds.size.width, height: 44)
         naviBGView.addSubview(naviTitleLabel)
-
-        let back = UIButton(type: .system)
-        back.setTitle("返回", for: .normal)
-        back.frame = CGRect(x: 12, y: topSafeMargin, width: 44, height: 44)
-        back.addTarget(self, action: #selector(naviBack), for: .touchUpInside)
-        naviBGView.addSubview(back)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func preferredPagingView() -> JXPagingView {
+        return JXPagingListRefreshView(delegate: self)
     }
 
     @objc func naviBack(){
@@ -100,11 +90,12 @@ class HomeVC: BasePageVC {
 
 }
 
-class HomeSubVc: BaseViewController {
+class HomeSubVc: UIViewController {
     
     var text: KVOClass = KVOClass()
     fileprivate lazy var dataArray: [HomeModel] = []
-    
+    var listViewDidScrollCallback: ((UIScrollView) -> ())?
+
     private lazy var tableView: UITableView = {
         let v = UITableView()
         v.mj_header = MJRefreshNormalHeader()
@@ -201,4 +192,38 @@ extension HomeSubVc: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(vc , animated: true);
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.listViewDidScrollCallback?(scrollView)
+    }
+    
+}
+
+extension HomeSubVc: JXPagingViewListViewDelegate {
+    func listView() -> UIView {
+        return view
+    }
+
+    func listViewDidScrollCallback(callback: @escaping (UIScrollView) -> ()) {
+        self.listViewDidScrollCallback = callback
+    }
+
+    func listScrollView() -> UIScrollView {
+        return self.tableView
+    }
+
+    func listWillAppear() {
+        print("\(self.title ?? ""):\(#function)")
+    }
+
+    func listDidAppear() {
+        print("\(self.title ?? ""):\(#function)")
+    }
+
+    func listWillDisappear() {
+        print("\(self.title ?? ""):\(#function)")
+    }
+
+    func listDidDisappear() {
+        print("\(self.title ?? ""):\(#function)")
+    }
 }

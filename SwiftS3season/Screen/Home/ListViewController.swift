@@ -19,7 +19,7 @@ class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = .white
         tableView.backgroundColor = UIColor.white
         tableView.tableFooterView = UIView()
         tableView.dataSource = self

@@ -93,6 +93,7 @@
 		8988940026BD46BD00DFD094 /* BasePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePageVC.swift; sourceTree = "<group>"; };
 		8988940326BD46E600DFD094 /* PagingViewTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewTableHeaderView.swift; sourceTree = "<group>"; };
 		8988940626BD475800DFD094 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		8988941B26BE58B300DFD094 /* App启动优化.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "App启动优化.txt"; sourceTree = "<group>"; };
 		89B400AC26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZ_MainTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		89B400AE26A9104A00B7E486 /* SZ_MainNavigationControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZ_MainNavigationControll.swift; sourceTree = "<group>"; };
 		89B400B426A9107400B7E486 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +222,14 @@
 				8969782226BBBE010024484E /* PieModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8988941A26BE588200DFD094 /* iOSBase */ = {
+			isa = PBXGroup;
+			children = (
+				8988941B26BE58B300DFD094 /* App启动优化.txt */,
+			);
+			path = iOSBase;
 			sourceTree = "<group>";
 		};
 		89B4006526A8301B00B7E486 /* Screen */ = {
@@ -388,6 +397,7 @@
 				89B4023526AE8D4700B7E486 /* Manager */,
 				89B401CA26AE640100B7E486 /* JSON */,
 				89B400AA26A9104A00B7E486 /* BaseUi */,
+				8988941A26BE588200DFD094 /* iOSBase */,
 				89B400A926A90F4800B7E486 /* SwiftBase */,
 				89B4006526A8301B00B7E486 /* Screen */,
 				89FB2FE626A8242800793F0D /* AppDelegate.swift */,

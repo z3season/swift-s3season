@@ -8,35 +8,18 @@
 import UIKit
 
 class PagingViewTableHeaderView: UIView {
-    lazy var imageView: UIImageView = UIImageView(image: UIImage(named: "lufei.jpg"))
+    lazy var imageView: UIImageView = UIImageView()
     var imageViewFrame: CGRect = CGRect.zero
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        backgroundColor = .white
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
         imageView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.addSubview(imageView)
-
-        let label = UILabel(frame: CGRect(x: 10, y: frame.size.height - 30, width: 200, height: 30))
-        label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "Monkey·D·路飞"
-        label.textColor = UIColor.red
-        label.autoresizingMask = [.flexibleRightMargin, .flexibleTopMargin]
-        self.addSubview(label)
-
-        let follow = UIButton(type: .system)
-        follow.setTitle("关注", for: .normal)
-        follow.addTarget(self, action: #selector(followDidClick), for: .touchUpInside)
-        follow.frame = CGRect(x: label.frame.maxX + 10, y: label.frame.minY, width: 50, height: 30)
-        addSubview(follow)
-        follow.translatesAutoresizingMaskIntoConstraints = false
-        if #available(iOS 9.0, *) {
-            follow.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 5).isActive = true
-            follow.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
-        }
+        imageView.kf.setImage(with: URL(string: "http://img.netbian.com/file/2021/0310/e6a30e5d21e7f08755be9b4f4caf1f6d.jpg"))
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -45,7 +28,6 @@ class PagingViewTableHeaderView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-
         imageViewFrame = bounds
     }
 
@@ -54,10 +36,6 @@ class PagingViewTableHeaderView: UIView {
         frame.size.height -= contentOffsetY
         frame.origin.y = contentOffsetY
         imageView.frame = frame
-    }
-
-    @objc func followDidClick() {
-        print("关注成功")
     }
 
 }
