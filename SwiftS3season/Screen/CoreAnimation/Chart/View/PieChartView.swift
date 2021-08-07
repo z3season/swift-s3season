@@ -38,7 +38,58 @@ class PieChartView: UIControl {
             PieModel(angle: totalPi * 0.25, alpha: 0.5, desc: "第五个弧形"),
         ]
         self.drawPieChart()
+        self.startAnimation()
     }
+    
+    func startAnimation() {
+        
+        let delay: TimeInterval = 0
+        for (index, layer) in self.outPieArray.enumerated() {
+            let model = self.pieModelArray[index]
+            self.perform(#selector(curAnimation), with: ["duration": model.duration, "layer": layer], afterDelay: delay, inModes: [RunLoop.Mode.common])
+            
+            
+            
+        }
+        
+    }
+    
+    @objc func curAnimation() {
+        
+    }
+    
+    /*
+     - (void)animation{
+         NSInteger i = 0;
+         CGFloat delay = 0;
+         //遍历所有的饼状图, 按顺序执行动画
+         for (CAShapeLayer *pieLayer in _pieArray) {
+             CAShapeLayer *inPieLayer = _inPieArray[i];
+             CGFloat duration = [_durationArray[i] floatValue];
+             [self performSelector:@selector(animationWithAttribute:) withObject:@{@"layer" : pieLayer, @"duration" : @(duration)} afterDelay:delay inModes:@[NSRunLoopCommonModes]];
+             [self performSelector:@selector(animationWithAttribute:) withObject:@{@"layer" : inPieLayer, @"duration" : @(duration)} afterDelay:delay inModes:@[NSRunLoopCommonModes]];
+             delay += duration;
+             i++;
+         }
+
+         [self performSelector:@selector(animationWithBedge) withObject:nil afterDelay:delay];
+     }
+
+     //根据传入的时间以及饼状图路径动画
+     - (void)animationWithAttribute:(NSDictionary *)attribute{
+         CAShapeLayer *layer = attribute[@"layer"];
+         CGFloat duration = [attribute[@"duration"] floatValue];
+
+         layer.hidden = NO;
+
+         CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+         animation1.fromValue = @(0);
+         animation1.toValue = @(1);
+         animation1.duration = duration;
+
+         [layer addAnimation:animation1 forKey:nil];
+     }
+     */
         
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     

@@ -15,15 +15,25 @@ enum QuadrantType {
     case four
 }
 
-class PieModel: NSObject {
+let pie_duration = 1.2
+
+class PieModel {
 
     var desc: String = ""
-    var angle: CGFloat = 0.0
+    var angle: CGFloat {
+        willSet {
+            
+        }
+        didSet {
+            self.duration = (self.angle / (CGFloat.pi * 2))
+        }
+    }
     var endAngle: CGFloat = 0
     var startAngle: CGFloat = 0
     var totalValue: CGFloat = 0
     var alpha: CGFloat = 1.0
     var isMoveOut: Bool = false
+    var duration: CGFloat = 0.5
     
     var angleNum: CGFloat {
         get {

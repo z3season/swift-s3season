@@ -64,13 +64,11 @@ class HomeVC: BasePageVC {
         naviTitleLabel.textAlignment = .center
         naviTitleLabel.frame = CGRect(x: 0, y: topSafeMargin, width: self.view.bounds.size.width, height: 44)
         naviBGView.addSubview(naviTitleLabel)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func preferredPagingView() -> JXPagingView {
@@ -212,18 +210,18 @@ extension HomeSubVc: JXPagingViewListViewDelegate {
     }
 
     func listWillAppear() {
-        print("\(self.title ?? ""):\(#function)")
+//        print("\(self.title ?? ""):\(#function)")
     }
 
     func listDidAppear() {
-        print("\(self.title ?? ""):\(#function)")
+//        print("\(self.title ?? ""):\(#function)")
     }
 
     func listWillDisappear() {
-        print("\(self.title ?? ""):\(#function)")
+//        print("\(self.title ?? ""):\(#function)")
     }
 
     func listDidDisappear() {
-        print("\(self.title ?? ""):\(#function)")
+//        print("\(self.title ?? ""):\(#function)")
     }
 }
