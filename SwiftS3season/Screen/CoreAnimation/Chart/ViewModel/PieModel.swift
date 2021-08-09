@@ -17,12 +17,12 @@ enum QuadrantType {
 
 let pie_duration = 1.2
 
-class PieModel {
+class PieModel: NSObject {
 
     var desc: String = ""
     var angle: CGFloat {
         willSet {
-            
+            print("111111")
         }
         didSet {
             self.duration = (self.angle / (CGFloat.pi * 2))
@@ -45,6 +45,7 @@ class PieModel {
         self.angle = angle
         self.alpha = alpha
         self.desc = desc
+        self.duration = (angle / (CGFloat.pi * 2))
     }
     
     func caculateAngle(_ startAngle: CGFloat, _ maxValue: CGFloat) {

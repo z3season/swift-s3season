@@ -42,55 +42,31 @@ class PieChartView: UIControl {
     }
     
     func startAnimation() {
-        
-        let delay: TimeInterval = 0
+        var delay: TimeInterval = 0
         for (index, layer) in self.outPieArray.enumerated() {
             let model = self.pieModelArray[index]
-            self.perform(#selector(curAnimation), with: ["duration": model.duration, "layer": layer], afterDelay: delay, inModes: [RunLoop.Mode.common])
-            
-            
-            
+            self.perform(#selector(curAnimation), with: ["duration": model.duration, "outLayer": layer, "inLayer": self.inPieArray[index]], afterDelay: delay, inModes: [RunLoop.Mode.common])
+            delay += TimeInterval(model.duration)
         }
-        
     }
     
-    @objc func curAnimation() {
+    // MARK: 绘制圆动画
+    @objc func curAnimation(_ dic: [String: AnyObject]) {
+        let duration: TimeInterval = dic["duration"] as! TimeInterval
+        let outLayer: CAShapeLayer = dic["outLayer"] as! CAShapeLayer
+        outLayer.isHidden = false
         
+        let inLayer: CAShapeLayer = dic["inLayer"] as! CAShapeLayer
+        inLayer.isHidden = false
+
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = duration
+        outLayer.add(animation, forKey: nil)
+        inLayer.add(animation, forKey: nil)
     }
     
-    /*
-     - (void)animation{
-         NSInteger i = 0;
-         CGFloat delay = 0;
-         //遍历所有的饼状图, 按顺序执行动画
-         for (CAShapeLayer *pieLayer in _pieArray) {
-             CAShapeLayer *inPieLayer = _inPieArray[i];
-             CGFloat duration = [_durationArray[i] floatValue];
-             [self performSelector:@selector(animationWithAttribute:) withObject:@{@"layer" : pieLayer, @"duration" : @(duration)} afterDelay:delay inModes:@[NSRunLoopCommonModes]];
-             [self performSelector:@selector(animationWithAttribute:) withObject:@{@"layer" : inPieLayer, @"duration" : @(duration)} afterDelay:delay inModes:@[NSRunLoopCommonModes]];
-             delay += duration;
-             i++;
-         }
-
-         [self performSelector:@selector(animationWithBedge) withObject:nil afterDelay:delay];
-     }
-
-     //根据传入的时间以及饼状图路径动画
-     - (void)animationWithAttribute:(NSDictionary *)attribute{
-         CAShapeLayer *layer = attribute[@"layer"];
-         CGFloat duration = [attribute[@"duration"] floatValue];
-
-         layer.hidden = NO;
-
-         CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-         animation1.fromValue = @(0);
-         animation1.toValue = @(1);
-         animation1.duration = duration;
-
-         [layer addAnimation:animation1 forKey:nil];
-     }
-     */
-        
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -211,11 +187,11 @@ class PieChartView: UIControl {
             inPiePath.addArc(withCenter: self.pieCenter, radius: self.inRadius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
             
             let outLayer = CAShapeLayer()
+            outLayer.isHidden = true
             outLayer.path = outPiePath.cgPath
             outLayer.lineWidth = self.outPieWidth
             outLayer.strokeColor = outColor.cgColor;
             outLayer.fillColor = UIColor.clear.cgColor;
-//            outLayer.isHidden = true
             arcLayer.addSublayer(outLayer)
 
             let inLayer = CAShapeLayer()
@@ -223,7 +199,7 @@ class PieChartView: UIControl {
             inLayer.lineWidth = self.inPieWidth
             inLayer.strokeColor = inColor.cgColor;
             inLayer.fillColor = UIColor.clear.cgColor;
-//            inLayer.isHidden = true
+            inLayer.isHidden = true
             arcLayer.addSublayer(inLayer)
 
             outPieArray.append(outLayer)
