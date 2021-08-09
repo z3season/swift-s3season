@@ -24,6 +24,11 @@
             "detail": "RunLoop detail",
             "icon_url": "https://c-ssl.duitang.com/uploads/blog/202103/04/20210304170757_1bca7.jpg",
             "router_key": "RunLoopVC"
+        }, {
+            "title": "http协议知识 NSSession",
+            "detail": "NSSession使用",
+            "icon_url": "https://c-ssl.duitang.com/uploads/blog/202107/10/20210710072954_b31a8.jpg",
+            "router_key": "HttpVC"
         }
     ]
 }
