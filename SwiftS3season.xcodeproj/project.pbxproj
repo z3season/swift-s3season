@@ -33,6 +33,7 @@
 		8988940126BD46BD00DFD094 /* BasePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8988940026BD46BD00DFD094 /* BasePageVC.swift */; };
 		8988940426BD46E600DFD094 /* PagingViewTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8988940326BD46E600DFD094 /* PagingViewTableHeaderView.swift */; };
 		8988940726BD475800DFD094 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8988940626BD475800DFD094 /* ListViewController.swift */; };
+		8988946D26C1033B00DFD094 /* HttpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8988946C26C1033B00DFD094 /* HttpVC.swift */; };
 		89B400AF26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400AC26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift */; };
 		89B400B026A9104A00B7E486 /* SZ_MainNavigationControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400AE26A9104A00B7E486 /* SZ_MainNavigationControll.swift */; };
 		89B400B526A9107400B7E486 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B400B426A9107400B7E486 /* BaseViewController.swift */; };
@@ -94,6 +95,7 @@
 		8988940326BD46E600DFD094 /* PagingViewTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewTableHeaderView.swift; sourceTree = "<group>"; };
 		8988940626BD475800DFD094 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		8988941B26BE58B300DFD094 /* App启动优化.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "App启动优化.txt"; sourceTree = "<group>"; };
+		8988946C26C1033B00DFD094 /* HttpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpVC.swift; sourceTree = "<group>"; };
 		89B400AC26A9104A00B7E486 /* SZ_MainTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZ_MainTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		89B400AE26A9104A00B7E486 /* SZ_MainNavigationControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SZ_MainNavigationControll.swift; sourceTree = "<group>"; };
 		89B400B426A9107400B7E486 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -232,9 +234,18 @@
 			path = iOSBase;
 			sourceTree = "<group>";
 		};
+		8988946B26C1032700DFD094 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				8988946C26C1033B00DFD094 /* HttpVC.swift */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
 		89B4006526A8301B00B7E486 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				8988946B26C1032700DFD094 /* Http */,
 				6166662026BAD67000FD365E /* RunLoop */,
 				8969779726BA5DD90024484E /* CoreGraphics */,
 				8969773426B2B7A20024484E /* CoreAnimation */,
@@ -577,6 +588,7 @@
 				89B400BD26A91F7E00B7E486 /* HomeVC.swift in Sources */,
 				89B4011826AA908C00B7E486 /* BaseBlock.swift in Sources */,
 				89B4023D26AE8D4700B7E486 /* AppRequest.swift in Sources */,
+				8988946D26C1033B00DFD094 /* HttpVC.swift in Sources */,
 				89B4023B26AE8D4700B7E486 /* RequestConfig.swift in Sources */,
 				89B400C126A9562000B7E486 /* BaseCollection.swift in Sources */,
 				6166662226BAD69C00FD365E /* RunLoopVC.swift in Sources */,
